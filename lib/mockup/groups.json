@@ -1,7 +1,27 @@
 [
     {
-        "id":1,
-        "name":"Apricots",
-        "users":["Shlomi","Yakob","Menahem"]
+        "id": 1,
+        "name": "Apricots",
+        "users": [
+            {
+                "id": 12345,
+                "name": "Shlomi",
+                "color": 1,
+                "notif_times": [
+                    "12:00",
+                    "17:00"
+                ],
+                "cycle_number": 1
+            },
+            {
+                "id": 23456,
+                "name": "Yakobo",
+                "color": 3,
+                "notif_times": [
+                    "17:30"
+                ],
+                "cycle_number": 2
+            }
+        ]
     }
 ]
