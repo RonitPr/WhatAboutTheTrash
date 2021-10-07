@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mehz/Styles/styles.dart';
+import 'package:mehz/Widgets/GroupCode.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -20,20 +21,11 @@ class MainScreen extends StatelessWidget {
       ),
       body: Center(
         child: Container(
-          //The group's code
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: MediaQuery.of(context).size.width * 0.5,
-                height: MediaQuery.of(context).size.height * 0.05,
-                margin: EdgeInsetsDirectional.only(top: 10, bottom: 10),
-                decoration: BoxDecoration(
-                    color: Color.fromARGB(255, 177, 177, 177),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Center(child: Text("<Group code>")),
-              ),
+              GroupCode(code: "123456"),
               Container(
                 // Space where the group member seens the data about the current week.
                 width: MediaQuery.of(context).size.width * 0.9,
