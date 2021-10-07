@@ -29,18 +29,17 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
           child: Column(
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.3,
+                height: MediaQuery.of(context).size.height * 0.4,
                 width: MediaQuery.of(context).size.width,
                 color: Colors.grey[500],
                 child: Image.asset('lib/Assets/suaknife.png'),
               ),
               Container(
                 height: MediaQuery.of(context).size.height * 0.1,
-                width: MediaQuery.of(context).size.width,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.6,
-                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.5,
+                width: MediaQuery.of(context).size.width * 0.9,
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -60,7 +59,7 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                         ),
                       ),
                       TextFormField(
-                        controller: nameController,
+                        controller: passcodeController,
                         maxLength: 20,
                         maxLines: 1,
                         textAlign: TextAlign.center,
@@ -72,16 +71,35 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                           errorStyle: TextStyle(fontSize: 15),
                         ),
                       ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text("Create"),
-                        style: getFlatButtonStyle(
-                          bgColor: Colors.grey,
-                          textColor: Colors.white,
-                          width: MediaQuery.of(context).size.width * 0.3,
-                          height: 60,
-                          textSize: 30,
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Text("Create"),
+                            style: getFlatButtonStyle(
+                              bgColor: Colors.grey,
+                              textColor: Colors.white,
+                              width: MediaQuery.of(context).size.width * 0.3,
+                              height: 60,
+                              textSize: 30,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("Go Back"),
+                            style: getFlatButtonStyle(
+                              bgColor: Colors.grey,
+                              textColor: Colors.white,
+                              width: MediaQuery.of(context).size.width * 0.25,
+                              height: 45,
+                              textSize: 20,
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
