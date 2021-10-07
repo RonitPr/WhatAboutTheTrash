@@ -112,7 +112,9 @@ class _NoGroupScreenState extends State<NoGroupScreen> {
                         ),
                         Spacer(),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(context, '/createGroupScreen');
+                          },
                           child: Text("New Group"),
                           style: getFlatButtonStyle(
                             bgColor: Colors.grey,
