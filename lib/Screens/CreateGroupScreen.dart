@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mehz/Styles/styles.dart';
+import 'package:mehz/services/SheredPref.dart';
 
 class CreateGroupScreen extends StatefulWidget {
   const CreateGroupScreen({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class CreateGroupScreen extends StatefulWidget {
 
 class _CreateGroupScreenState extends State<CreateGroupScreen> {
   static final _formKey = GlobalKey<FormState>();
+  final nickController = TextEditingController();
   final nameController = TextEditingController();
   final passcodeController = TextEditingController();
 
@@ -46,6 +48,19 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       TextFormField(
+                        controller: nickController,
+                        maxLength: 20,
+                        maxLines: 1,
+                        textAlign: TextAlign.center,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          fillColor: Colors.white70,
+                          filled: true,
+                          hintText: 'Your Nickname',
+                          errorStyle: TextStyle(fontSize: 15),
+                        ),
+                      ),
+                      TextFormField(
                         controller: nameController,
                         maxLength: 20,
                         maxLines: 1,
@@ -76,7 +91,14 @@ class _CreateGroupScreenState extends State<CreateGroupScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              // TODO- send a request to the server that will create the group and generate a code.
+                              SharedPref().saveGroupAndNickname(
+                                  "123456", //TODO - get the group's code to here.
+                                  passcodeController.text,
+                                  nickController.text);
+                              Navigator.pop(context);
+                            },
                             child: Text("Create"),
                             style: getFlatButtonStyle(
                               bgColor: Colors.grey,

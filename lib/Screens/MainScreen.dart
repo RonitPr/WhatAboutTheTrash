@@ -14,7 +14,9 @@ class MainScreen extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/settingsScreen');
+            },
             icon: Icon(Icons.settings), // Settings button for user settings.
           ),
         ],

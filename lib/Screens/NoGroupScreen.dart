@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mehz/Styles/styles.dart';
+import 'package:mehz/services/SheredPref.dart';
 
 final validCharacters = RegExp(r'^[a-zA-Z0-9]+$');
 
@@ -14,6 +15,7 @@ class _NoGroupScreenState extends State<NoGroupScreen> {
   static final _formKey = GlobalKey<FormState>();
   final nickController = TextEditingController();
   final gcodeController = TextEditingController();
+  final gpassController = TextEditingController();
 
   @override
   void dispose() {
@@ -31,13 +33,13 @@ class _NoGroupScreenState extends State<NoGroupScreen> {
         child: Column(
           children: [
             Container(
-              height: MediaQuery.of(context).size.height * 0.55,
+              height: MediaQuery.of(context).size.height * 0.50,
               width: MediaQuery.of(context).size.width,
               color: Colors.grey[500],
               child: Image.asset('lib/Assets/suaknife.png'),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.45,
+              height: MediaQuery.of(context).size.height * 0.50,
               width: MediaQuery.of(context).size.width * 0.9,
               child: Form(
                 key: _formKey,
@@ -87,13 +89,35 @@ class _NoGroupScreenState extends State<NoGroupScreen> {
                         return null;
                       },
                     ),
+                    TextFormField(
+                      controller: gpassController,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        fillColor: Colors.white70,
+                        filled: true,
+                        hintText: 'Group pass code',
+                        errorStyle: TextStyle(fontSize: 15),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Forgot group passcode!';
+                        }
+                        return null;
+                      },
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         TextButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              // Enter the group with this nickname.
+                              // Enter the group with this nickname. TODO
+                              SharedPref().saveGroupAndNickname(
+                                  gcodeController.text,
+                                  "123456",
+                                  nickController.text);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
                                     content: Text(

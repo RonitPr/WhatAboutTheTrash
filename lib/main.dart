@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mehz/Screens/SettingsScreen.dart';
 import 'Screens/CreateGroupScreen.dart';
 import 'Screens/NoGroupScreen.dart';
 import 'package:mehz/Screens/MainScreen.dart';
@@ -16,7 +17,7 @@ class MehzApp extends StatelessWidget {
       routes: {
         '/': (context) => const MainScreen(),
         '/noGroupScreen': (context) => const NoGroupScreen(),
-        // '/settingsScreen': (context) => const SettingsScreen(),
+        '/settingsScreen': (context) => const SettingsScreen(),
         '/reportScreen': (context) => const ReportScreen(),
         '/createGroupScreen': (context) => const CreateGroupScreen(),
       },
